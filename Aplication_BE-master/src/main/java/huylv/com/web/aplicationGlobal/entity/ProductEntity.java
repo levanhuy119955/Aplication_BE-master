@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Data
 public class ProductEntity {
-    private int code;
+    private String code;
     private String description;
     private Date timetemp;
 }

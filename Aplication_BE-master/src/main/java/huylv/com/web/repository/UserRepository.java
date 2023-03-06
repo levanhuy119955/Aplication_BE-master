@@ -7,5 +7,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
-    Optional<User> findByUserName(String userName);
+    User findByUserName(String userName);
+
+    User findByPassWord(String password);
+
+
 }

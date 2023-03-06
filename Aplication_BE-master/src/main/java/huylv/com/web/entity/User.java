@@ -1,6 +1,7 @@
 package huylv.com.web.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,11 +25,12 @@ public class User {
     private String userName;
 
 
+    @JsonIgnore
     @Length(min = 8, max = 32, message = "Mật khẩu có độ dài 8 - 32 ký tự")
     @NotEmpty(message = "Bạn nhập mật khẩu")
     private String passWord;
 
-    @Size(min = 10, max = 11)
+    @Size(min = 10, max = 11, message = "SĐT có độ dài 10 - 11 số")
     @NotNull(message = "Bạn nhập SĐT người dùng")
     private String number;
 

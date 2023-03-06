@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Entity
 @Table(name = "oder")
@@ -32,4 +34,7 @@ public class Order {
     @JoinTable(name = "order_Product", joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     private List<Product> productList;
+
+    @OneToMany(mappedBy = "orders")
+    private List<OrderPayment> orderPayment;
 }

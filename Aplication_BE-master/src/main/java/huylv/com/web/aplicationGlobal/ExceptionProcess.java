@@ -15,7 +15,7 @@ public class ExceptionProcess {
     @ExceptionHandler(value = ProductGlobal.class)
     public ResponseEntity<Object> productEx(ProductGlobal productGlobal){
         ProductEntity productEntity = new ProductEntity();
-        productEntity.setCode(100);
+        productEntity.setCode("001");
         productEntity.setDescription(productGlobal.getMessage());
         productEntity.setTimetemp(new Date());
         return new ResponseEntity<>(productEntity, HttpStatus.BAD_REQUEST);
@@ -23,7 +23,7 @@ public class ExceptionProcess {
     @ExceptionHandler(UserGlobal.class)
     public ResponseEntity<Object> userEx(UserGlobal userGlobal){
         UserEntity user = new UserEntity();
-        user.setCode(001);
+        user.setCode("001");
         user.setDescription(userGlobal.getMessage());
         user.setTimetemp(new Date());
         return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
