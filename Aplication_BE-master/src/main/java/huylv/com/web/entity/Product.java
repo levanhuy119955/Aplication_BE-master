@@ -24,7 +24,6 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
 //  @Pattern(regexp = "[a-zA-Z][a-z0-9 ]+")
     @NotBlank(message = "Bạn phải nhập tên sản phẩm")
     @Length(max = 50)

@@ -18,7 +18,5 @@ public class Payment {
     private Integer id;
 
     @NotEmpty(message = "Bạn chọn hình thức thanh toán")
-    private Status payments;
-
-
+    private String payments;
 }

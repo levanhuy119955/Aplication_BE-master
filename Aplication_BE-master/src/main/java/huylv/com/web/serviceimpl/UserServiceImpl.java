@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
-    private static final String AVATAT_DIR = "C:\\Users\\HP\\Desktop\\Avatar";
+    private static final String AVATAR_DIR = "C:\\Users\\HP\\Desktop\\Avatar";
 
     private static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
@@ -117,8 +117,7 @@ public class UserServiceImpl implements UserService {
         if (!fileType.startsWith("image/")) {
             throw new InvalidClassException("File không đúng định dạng!");
         } else {
-            log.info("");
-            Path path = Paths.get(AVATAT_DIR + fileName);
+            Path path = Paths.get(AVATAR_DIR + fileName);
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
             userID.setAvatar(path.toString());
             userRepository.save(userID);

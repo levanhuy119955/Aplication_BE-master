@@ -3,7 +3,9 @@ package huylv.com.web.service;
 import huylv.com.web.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.lang.invoke.StringConcatException;
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +13,8 @@ import java.util.Optional;
 @Service
 public interface ProductService {
     Product createProduct(Product productNew);
+
+    void uploadFileProduct(Integer id, MultipartFile file) throws IOException;
 
     Product updateProduct(Integer id, Product product);
 

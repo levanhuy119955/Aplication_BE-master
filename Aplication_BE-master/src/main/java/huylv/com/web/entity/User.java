@@ -9,6 +9,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 
 @Entity
@@ -23,7 +24,6 @@ public class User {
 
     @NotNull(message = "Bạn phải nhập tên người dùng")
     private String userName;
-
 
     @JsonIgnore
     @Length(min = 8, max = 32, message = "Mật khẩu có độ dài 8 - 32 ký tự")
@@ -45,5 +45,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role roleList;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "order_user")
+    private List<Order> orderList;
 }
 

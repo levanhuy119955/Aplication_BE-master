@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "oder")
@@ -26,7 +25,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "order_User")
-    private User user;
+    private User order_user;
 
     private String status;
 
