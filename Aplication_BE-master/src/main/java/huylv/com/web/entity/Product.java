@@ -24,7 +24,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//  @Pattern(regexp = "[a-zA-Z][a-z0-9 ]+")
+    //  @Pattern(regexp = "[a-zA-Z][a-z0-9 ]+")
     @NotBlank(message = "Bạn phải nhập tên sản phẩm")
     @Length(max = 50)
     private String productName;
@@ -39,7 +39,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    private Category categoryID;
+    private Category category_ID;
 
     @ManyToMany(mappedBy = "productList")
     @JsonIgnore

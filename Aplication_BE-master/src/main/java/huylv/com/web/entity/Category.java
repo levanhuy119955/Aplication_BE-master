@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 @Entity
@@ -24,6 +25,6 @@ public class Category {
     @Column(length = 255)
     private String discription;
 
-//    @OneToMany(mappedBy = "categoryID")
-//    private List<Product> productList;
+    @OneToMany(mappedBy = "category_ID")
+    private List<Product> productList;
 }

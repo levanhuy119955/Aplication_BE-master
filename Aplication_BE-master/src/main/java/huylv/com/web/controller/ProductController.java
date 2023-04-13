@@ -30,21 +30,21 @@ public class ProductController {
     public ResponseEntity<Product> creatProduct(@Validated @RequestBody Product product) {
         log.info("Gọi hàm thêm mới sản phẩm");
         Product product1 = productService.createProduct(product);
-       try {
-           return ResponseEntity.ok(product1);
-       }catch (RuntimeException ex){
-           throw new RuntimeException("Có lỗi xảy ra, lỗi đã được thông báo cho quản trị!");
-       }
+        try {
+            return ResponseEntity.ok(product1);
+        } catch (RuntimeException ex) {
+            throw new RuntimeException("Có lỗi xảy ra, lỗi đã được thông báo cho quản trị!");
+        }
     }
 
     @PostMapping("/uploadAvatarProduct/{id}")
-    public ResponseEntity<String> uploadFileProduct(@PathVariable Integer id , @RequestParam (name = "file") MultipartFile file)throws IOException {
+    public ResponseEntity<String> uploadFileProduct(@PathVariable Integer id, @RequestParam(name = "file") MultipartFile file) throws IOException {
         productService.uploadFileProduct(id, file);
-       try {
-           return ResponseEntity.ok("Upload file thành công");
-       }catch (RuntimeException ex){
-           throw new RuntimeException("Có lỗi xảy ra!");
-       }
+        try {
+            return ResponseEntity.ok("Upload file thành công");
+        } catch (RuntimeException ex) {
+            throw new RuntimeException("Có lỗi xảy ra!");
+        }
     }
 
     @PutMapping("/updateProduct/{id}")

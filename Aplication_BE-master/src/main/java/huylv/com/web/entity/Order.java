@@ -24,7 +24,7 @@ public class Order {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(name = "order_User")
+    @JoinColumn(name = "order_user")
     private User order_user;
 
     private String status;

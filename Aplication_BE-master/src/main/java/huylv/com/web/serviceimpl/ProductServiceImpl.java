@@ -64,7 +64,7 @@ public class ProductServiceImpl implements ProductService {
         updatePro.setDescription(product.getDescription());
         updatePro.setPrice(product.getPrice());
         updatePro.setAvatar(product.getAvatar());
-        updatePro.setCategoryID(product.getCategoryID());
+        updatePro.setCategory_ID(product.getCategory_ID());
         productRepository.save(updatePro);
         return updatePro;
     }

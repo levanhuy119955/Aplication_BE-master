@@ -1,24 +1,18 @@
 package huylv.com.web.serviceimpl;
 
-import com.fasterxml.jackson.databind.exc.InvalidTypeIdException;
 import huylv.com.web.aplicationGlobal.UserGlobal;
 import huylv.com.web.dto.UserDTO;
 import huylv.com.web.entity.User;
 import huylv.com.web.repository.UserRepository;
 import huylv.com.web.service.UserService;
 
-import org.apache.tomcat.util.http.fileupload.InvalidFileNameException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.support.MultipartFilter;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InvalidClassException;
 import java.lang.invoke.StringConcatException;
@@ -47,6 +41,9 @@ public class UserServiceImpl implements UserService {
         if (checkName == null) {
             log.info("Tạo mới user nếu chưa có user này");
             String pass = user.getPassWord();
+            if (pass == null){
+                throw new IllegalArgumentException("Mật khẩu không được để trống");
+            }
             String encode = Base64.getEncoder().encodeToString(pass.getBytes(StandardCharsets.UTF_8));
             User newUser = new User();
             newUser.setUserName(user.getUserName());
